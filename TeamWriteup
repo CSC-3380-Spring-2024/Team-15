@@ -1,1 +1,23 @@
+This is the development code for our ios/android app 'WeatherTether'
 
+This application is intended to provide a fun and interactive alternative to everyday weather apps by making it into a game! Lovers of popular apps such as flappy bird, those who always forget their umbrella or wear long sleaves in 80 degree weather rejoice!
+
+Roles/tasks:
+ Maci McCord (Project Manager)
+    Task management
+    Weather backend/ API management
+    TeamWriteup/README files
+    innitial commit/ branch setup
+
+D'Marrick Guillory (GITMaster)
+    flutter app design
+
+Makayla Files(Communication Lead)
+    Weather front end
+    character customization
+
+Naijla Burdine(Quality Ensurer)
+    Weather graphics design
+
+Sherard Bryant (Design lead)
+    Gameplay backend

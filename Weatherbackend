@@ -1,0 +1,53 @@
+using System;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+
+import System;
+using System.Collections.generic;
+using System.Linq;
+using Systen.Text;
+using Systen.Threading.Tasks;
+
+namespace Weatherapi
+{
+    Apikey = 'e9ce1765fc49a3669575951ef20fdc2f'
+    class Weatherinfo
+    {
+        public class coord
+        {
+            double lon {get;set;}
+            double lat {get;set;}
+        }
+        public class Weatherapi{
+            string main {get;set;}
+            string description {get;set;}
+            string icon {get;set}
+        }
+        public class main{
+            double temp {get; set}
+            double feels_like {get;set}
+            double pressure {get; set;}
+            double humidity {get;set;}
+        }
+        public class wind
+        {
+            double speed {get;set;}
+
+        }
+        public class System{
+            long sunrise {get;set;}
+            long sunset {get;set;}
+        }
+
+        public class root
+        {
+            public coord coord {get; set;}
+            public list  <Weatherapi> weather {get;set;}
+            public main main {get; set;}
+            public wind wind {get; set;}
+            public System sys {get; set;}
+        }
+    }
+}
