@@ -18,3 +18,6 @@ OpenWeather API (3hr 5 day forecast)
 PostMan
     This development tool is a website that allows you to test your api calls before development. It will show you working output to compare to. This is also how you can check you weather API's format for neccessary classes: https://web.postman.co/
 
+Rest Client extension (VsCode) by Huachao Mao
+    Another option for testing your API directly in VScode. Simple and easy. Just install the extention, create a file with the ending ".http", and use "get {http link}". After clicking "send request" above your get command, your testing window will open.
+

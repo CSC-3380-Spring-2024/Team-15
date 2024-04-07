@@ -3,17 +3,15 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-
-import System;
 using System.Collections.generic;
 using System.Linq;
 using Systen.Text;
-using Systen.Threading.Tasks;
 
 namespace Weatherapi
 {
-    Apikey = 'e9ce1765fc49a3669575951ef20fdc2f'
-    class Weatherinfo
+    
+
+    public static class Weatherinfo (string Weatherapi)
     {
         public class coord
         {
