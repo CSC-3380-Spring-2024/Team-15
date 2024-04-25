@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   
-  final WeatherFactory _wf = WeatherFactory();
+  final WeatherFactory _wf = WeatherFactory(api);
 
   Weather? _weather;
 
