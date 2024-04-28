@@ -6,6 +6,11 @@ Official documentation for 'WeatherTether': a cross platform weather app that co
 
 *Prereq development tools:*
 
+*****************************************************************************************************************
+// Weather Portion!!//
+
+
+
 Flutter for app development
     This allows more versatility that React Native. You can develope for both IOS and Android simultaneously (See official documentation for dependencies and proper set up): [Flutter Official website](https://flutter.dev/multi-platform/mobile)
 
@@ -33,7 +38,15 @@ How To start a Flutter project within an Already existing project: https://docs.
 
 Handling Events and User Input in Flutter By Abhishek Dhanani for Flutter Angency: https://flutteragency.com/handling-events-and-user-input-in-flutter/#:~:text=The%20TextField%20widget%20can%20be%20used%20to%20manage,const%20TextFieldEventDemo%28%7Bsuper.key%7D%29%3B%20%40override%20_TextFieldEventDemoState%20createState%28%29%20%3D%3E%20_TextFieldEventDemoState%28%29%3B%20%7D
 
+Navigation Bar class from official Flutter webpage:\
+https://api.flutter.dev/flutter/material/NavigationBar-class.html
+
 
 *Breakdown of Files needed*
 - In your flutter Lib file: Create a "constants.dart" or "const.dart" file to hold your api key. You can copy our exactly just paste in your own key.
 - Weather_front: This is wear the main weather program happens. This page is responsible for the intorductory screen of the app asking for location and displaying the basic weather information. This file also includes the interactive play button that takes the user to game play.
+
+*Widgets included*
+- LocationInputWidget.dart: Here I made a widget that uses user input instead of geolocation to find the user's current location
+- NavWidget.dart: This was started but will be finished in dev file. Here we create a front page navigation from the front weather page to game play. 
+

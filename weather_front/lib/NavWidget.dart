@@ -1,28 +1,53 @@
 import 'package:flutter/material.dart';
+/// Using the flutter navigation buttom widget
 
-@override 
+void main() => runApp(const Nav());
 
-Widget HomeNav(BuildContext){
-return Scaffold(
-  backgroundColor:( const Color.fromARGB(255, 6, 91, 160)),
-  appBar: AppBar(
-    title: Text('WeatherTether'),
-  ),
-  body: _children[_currentIndex],
-  bottomNavigationBar: :BottomNavBar(
-    ontTap: onTabTapped,
-    currentIndex: _currentIndex,
-    items:[
-      new Icon(
-        color:(const color.fromARGB
-        icon: Icon(Icons.home),
-        title: Text('Home'),
-        ),
-        new Icon(
-          icon: Icon(Icons.play),
-          title: Text('Play'),
-          )
-    ],
-    ),
-);
+class NavBar extends StatelessWidget {
+  const NavBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(useMaterial3: true),
+      home: const NavBar(),
+    );
+  }
 }
+
+class Nav extends StatefulWidget {
+  const Nav({super.key});
+
+  @override
+  State<Nav> createState() => _NavState();
+}
+
+class _NavState extends State<Nav> {
+  int currentPageIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    return Scaffold(
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (int index) {
+          setState(() {
+            onTabChange: (index){
+              print(index);
+            };
+            currentPageIndex = index;
+          });
+        },
+        indicatorColor: Color.fromARGB(255, 23, 17, 180),
+        selectedIndex: currentPageIndex,
+        destinations: const <Widget>[
+          NavigationDestination(
+            selectedIcon: Icon(Icons.beach_access),
+            icon: Icon(Icons.beach_access_outlined),
+            label: 'Weather Hub',
+          ),
+          NavigationDestination(
+            icon: Badge(child: Icon(Icons.videogame_asset)),
+            label: 'Play',
+          )
+      ],
