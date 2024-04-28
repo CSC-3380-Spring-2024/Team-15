@@ -1,46 +1,79 @@
-import 'package:flutter/material.dart';
-import 'LocationInputWidget.Dart';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:weather/weather.dart';
 import 'package:weather_front/constants.dart';
-import 'NavWidget.dart';
-
-
+import 'Play.dart';
 
 class HomePage extends StatefulWidget {
-  final String locInput; // Add a parameter for location input
-  const HomePage({Key? key, required this.locInput}) : super(key: key);
+  const HomePage({super.key});
+
   @override
-  State<HomePage> createState() => _HomePageState(locInput: '');
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  
-  final String locInput; // Declaring as a class-level variable
-  _HomePageState({required this.locInput});
+  int index = 0;
+  final pages = [
+    Play(),
+  ];
 
   final WeatherFactory _wf = WeatherFactory(api);
 
+  
   Weather? _weather;
+  TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    // TODO: implement initState
-    _wf.currentWeatherByCityName(locInput).then((w){
-      setState(() {
-      _weather = w;  
-      });
-    } ,);
+    _fetchWeather("Baton Rouge");
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(body: _buildUI());
+  void _fetchWeather(String cityName) {
+    _wf.currentWeatherByCityName(cityName).then((weather) {
+      setState(() {
+        _weather = weather;
+      });
+    });
   }
+
+ @override
+Widget build(BuildContext context) {
+  return Scaffold(
+    resizeToAvoidBottomInset: true,
+    appBar: AppBar(
+      title: TextField(
+        controller: _searchController,
+        decoration: InputDecoration(
+          hintText: 'Enter city name',
+          suffixIcon: IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              String cityName = _searchController.text;
+              _fetchWeather(cityName);
+            },
+          ),
+        ),
+        onSubmitted: (value) {
+          String cityName = _searchController.text;
+          _fetchWeather(cityName);
+        },
+      ),
+    ),
+    body: SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          _buildUI(),
+        ],
+      ),
+    ),
+  );
+}
+
   
 
  Widget _buildUI() {
@@ -224,6 +257,37 @@ Widget _extraInfo(){
     ),
   );
  }
- 
+ @override
+  Widget buildNav(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Color.fromARGB(255, 20, 4, 241),
+        body: pages[index],
+        bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon
+              (Icons.beach_access, size: 30
+              ),
+               label: 'Weather',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.play_arrow_rounded,
+                 size: 30),
+                  label: 'Play',
+            ),
+          ],
+        backgroundColor: Color.fromARGB(255, 135, 61, 214),
+          elevation: 5.0,
+          unselectedItemColor: Color.fromARGB(255, 204, 207, 3),
+          currentIndex:index,
+          onTap: (Curr_index){
+            setState(() {
+              index = Curr_index;
+            });
+          },
+        )
+    );
+  }
 }
-
+ 

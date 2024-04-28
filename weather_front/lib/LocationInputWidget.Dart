@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 void main() => runApp(const LocInputBar());
 
 class LocInputBar extends StatefulWidget {
-  const LocInputBar({Key? key}): super(key: key);
+  final void Function(String) onTextChanged;
+
+  const LocInputBar({Key? key, required this.onTextChanged}) : super(key: key);
 
   @override
   State<LocInputBar> createState() => _LocInputBarState();
@@ -19,6 +21,12 @@ class _LocInputBarState extends State<LocInputBar> {
     final ThemeData themeData = ThemeData(
         useMaterial3: true,
         brightness: isDark ? Brightness.dark : Brightness.light);
+    return TextField(
+      onChanged: onTextChanged,
+      decoration: InputDecoration(
+        hintText: 'Enter Location',
+      )
+    )
 
     return MaterialApp(
       theme: themeData,
@@ -61,10 +69,17 @@ class _LocInputBarState extends State<LocInputBar> {
               final String LocInput = 'Loc $index';
               return ListTile(
                 title: Text(LocInput),
-                onTap: () {
+                onTap: (
+                  context,
+                  LocInputRoute(
+                    builder: (context) => Submit(
+                      city: city,
+                    )
+                  )
+                ) {
                   setState(() {
                     controller.closeView(LocInput);
-                    return const String LocInput
+
                     
                   });
                 },
