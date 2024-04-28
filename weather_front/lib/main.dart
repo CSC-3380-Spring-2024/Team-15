@@ -11,7 +11,9 @@ import 'NavWidget.dart';
 
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final String locInput; // Add a parameter for location input
+
+  const HomePage({Key? key, required this.locInput}) : super(key: key);
   @override
   State<HomePage> createState() => _HomePageState(locInput:'LocInput');
 }
