@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:weather/weather.dart';
-import 'package:weather_app_tutorial/consts.dart';
+import 'package:weather_front/constants.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   
-  final WeatherFactory _wf = WeatherFactory(OPENWEATHER_API_KEY);
+  final WeatherFactory _wf = WeatherFactory(api);
 
   
   Weather? _weather;
