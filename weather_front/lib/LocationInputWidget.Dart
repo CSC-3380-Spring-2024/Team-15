@@ -64,6 +64,8 @@ class _LocInputBarState extends State<LocInputBar> {
                 onTap: () {
                   setState(() {
                     controller.closeView(LocInput);
+                    return const String LocInput
+                    
                   });
                 },
               );
