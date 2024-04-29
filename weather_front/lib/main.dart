@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:weather/weather.dart';
 import 'package:weather_front/constants.dart';
-import 'Play.dart';
+import 'package:weather_front/Play.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -257,13 +257,13 @@ Widget _extraInfo(){
     ),
   );
  }
- @override
+
   Widget buildNav(BuildContext context) {
     return Scaffold(
         backgroundColor: Color.fromARGB(255, 20, 4, 241),
         body: pages[index],
         bottomNavigationBar: BottomNavigationBar(
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon
               (Icons.beach_access, size: 30
