@@ -1,0 +1,5 @@
+@weatherapi = https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=e9ce1765fc49a3669575951ef20fdc2f
+get {{weatherapi}}
+
+
+
