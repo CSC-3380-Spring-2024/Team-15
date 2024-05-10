@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnb3n8iqdkggn"]
+
+[ext_resource type="Script" path="res://Scenes/bird.gd" id="1_b25kv"]
+[ext_resource type="Texture2D" uid="uid://b7albo0s7i7m7" path="res://Assests/Sun copy.png" id="1_ctyyp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bs8u2"]
+radius = 17.0
+height = 38.0
+
+[sub_resource type="Animation" id="Animation_c013r"]
+resource_name = "flap"
+
+[sub_resource type="Animation" id="Animation_wpsvo"]
+resource_name = "flap_wings"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_ctyyp"), ExtResource("1_ctyyp"), ExtResource("1_ctyyp")]
+}
+
+[sub_resource type="Animation" id="Animation_4md32"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2.08165e-12, -10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q0p8h"]
+_data = {
+"flap": SubResource("Animation_c013r"),
+"flap_wings": SubResource("Animation_wpsvo"),
+"idle": SubResource("Animation_4md32")
+}
+
+[node name="Bird" type="CharacterBody2D"]
+script = ExtResource("1_b25kv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.185, 0.179487)
+texture = ExtResource("1_ctyyp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bs8u2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_q0p8h")
+}
