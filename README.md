@@ -34,8 +34,9 @@ https://api.flutter.dev/flutter/material/NavigationBar-class.html
 Breakdown of Files needed
 
 In your flutter Lib file: Create a "constants.dart" or "const.dart" file to hold your api key. You can copy our exactly just paste in your own key.
-Weather_front: This is wear the main weather program happens. This page is responsible for the intorductory screen of the app asking for location and displaying the basic weather information. This file also includes the interactive play button that takes the user to game play.
+Weather_front: This is wear the main weather program happens. This page is responsible for the intorductory screen of the app asking for location and displaying the basic weather information. This file also includes the interactive play button that takes the user to game play.(Team-15/weather_front/lib/main.dart)
 Widgets included
 
 LocationInputWidget.dart: Here I made a widget that uses user input instead of geolocation to find the user's current location
 NavWidget.dart: This was started but will be finished in dev file. Here we create a front page navigation from the front weather page to game play.
+**Gameplay can be found in CSC 3380 Game if button isn't implemented**
